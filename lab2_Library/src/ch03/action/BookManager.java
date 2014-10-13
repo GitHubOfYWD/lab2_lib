@@ -283,3 +283,4 @@ class book{
 class info{
 	public String str=new String();
 }
+/*Book Manager.java has been modified by me here*/
