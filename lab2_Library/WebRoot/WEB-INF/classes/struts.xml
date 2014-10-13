@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="default" extends="struts-default" namespace="">
+      <action name="show">
+         <result>/homepage.jsp</result>
+      </action>
+      
+      <action name="Add Author" class="ch03.action.HelloWorldAction">
+         <result name="success">/HelloWorld.jsp</result>
+         <result name="error">/HelloWorld.jsp</result>
+      </action>
+      
+      <action name="homepage" class="ch03.action.gohomepageAction">
+         <result name="success">/homepage.jsp</result>
+      </action>
+      
+      <!-- <action name="Add Book" class="ch03.action.addbookAction">
+         <result name="success">/HelloWorld.jsp</result>
+         <result name="error">/Add Author and Book.jsp</result>
+      </action> -->
+      
+      
+      <action name="showall" class="ch03.action.showallAction">
+         <result name="success">/showall.jsp</result>
+      </action>
+      
+       <action name="searchauthor" class="ch03.action.searchauthorAction">
+         <result name="success">/author.jsp</result>
+      </action>
+      
+      
+      
+       <!-- <action name="delBook" class="ch03.action.BookManager"> -->
+       <action name="author_*" class="ch03.action.BookManager" method="{1}">
+         <result name="delete book" type="redirect">author_searchAuthor.action?authorname=${authorname}</result>
+         <result name="search book">/book.jsp</result>
+         <result name="edit">/EditBook.jsp</result>
+         <result name="edit book" type="redirect">author_searchAuthor.action?isbn=${isbn}&amp;authorname=${authorname}</result>
+         <result name="add book success">/HelloWorld.jsp</result>
+         <result name="add book error">/Add Author and Book.jsp</result>
+         <result name="find book">/book.jsp</result>
+         <result name="isbn error">/Add Book.jsp</result>
+         <result name="search author">/author.jsp</result>
+         <result name="add author success">/HelloWorld.jsp</result>
+         <result name="add author error">/Add Author.jsp</result>
+         <result name="show all">/showall.jsp</result>
+      </action>
+   </package>
+</struts>    
